@@ -14,8 +14,7 @@
     <link href="../assets/css/enterprise-common.css" rel="stylesheet">
     <?php require __DIR__ . '/../functions/header.php'; ?>
     <script>
-      function deleteCustomerService(CSID)
-      {
+      function deleteCustomerService(CSID) {
         if(confirm("确定要删除吗？")) {
           window.location="../functions/action.php?action=deletecustomerservice&CSID="+CSID;
         }
@@ -24,7 +23,7 @@
   </head>
   <body>
     <div class="topbar">
-        <span>SMART-Q&A</span>
+        <span>EService</span>
         <div class="dropdown">
           <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?php echo $_SESSION['EName']; ?></button>
           <a class="btn btn-danger" href="../functions/action.php?action=enterpriseLogout">退出</a>
@@ -57,19 +56,21 @@
                 <span>客服列表</span>
               </div>
               <div class="cs-list-body">
-                <button type="button" class="btn" onclick=location.href="cs_add.php">添加客服</button>
-                <form action="">
-                  <label for="search">搜索</label>
-                  <input type="text" id="search">
-                  <input type="submit" class="btn">
-                </form>
+                <div class="search-button-flex">
+                  <button type="button" class="btn" onclick=location.href="cs_add.php">添加客服</button>
+                  <form action="">
+                    <label for="search">搜索</label>
+                    <input type="text" id="search">
+                    <input type="submit" class="btn">
+                  </form>
+                </div>
                  <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
                       <th>客服号</th>
                       <th>产品名</th>
                       <th>登录名</th>
-					  <th>满意度</th>
+					            <th>满意度</th>
                       <th>操作</th>
                     </tr>
                   </thead>
@@ -95,9 +96,9 @@
                           echo "<td>{$row['CSName']}</td>";
                           echo "<td>{$row_countSatisfied}/{$row_countCCSID}</td>";
                           echo "<td class='table-ope-icon'>
-                                  <a href='cs_list.php?CSID={$row['CSID']}'><span class='glyphicon glyphicon-search'></span></a>
-                                  <a href='cs_modify.php?CSID={$row['CSID']}'><span class='glyphicon glyphicon-wrench'></span></a>
-                                  <a href='javascript:deleteCustomerService({$row['CSID']})'><span class='glyphicon glyphicon-trash'></span></a>
+                                  <a href='cs_list.php?CSID={$row['CSID']}' title='展示客服'><span class='glyphicon glyphicon-search'></span></a>
+                                  <a href='cs_modify.php?CSID={$row['CSID']}' title='修改客服'><span class='glyphicon glyphicon-wrench'></span></a>
+                                  <a href='javascript:deleteCustomerService({$row['CSID']})' title='删除客服'><span class='glyphicon glyphicon-trash'></span></a>
                                 </td>";
                         echo "</tr>";
                       }

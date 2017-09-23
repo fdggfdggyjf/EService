@@ -12,10 +12,8 @@
     <title>知识库管理</title>
     <link href="../assets/css/enterprise-common.css" rel="stylesheet">
     <?php require __DIR__ . '/../functions/header.php'; ?>    <script>
-			function deleteKnowledge(KID)
-			{
-				if(confirm("确定要删除吗？"))
-				{
+			function deleteKnowledge(KID)	{
+				if(confirm("确定要删除吗？")) {
 					window.location="../functions/action.php?action=deleteKnowledge&KID="+KID;
 				}
 			}
@@ -23,13 +21,11 @@
   </head>
   <body>
     <div class="topbar">
-        <span>SMART-Q&A</span>
-        <div class="dropdown">
-          <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?php echo $_SESSION['EName']; ?><span class="caret"></span></button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="../functions/action.php?action=enterpriseLogout">退出</a></li>
-          </ul>
-        </div>
+      <span>EService</span>
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?php echo $_SESSION['EName']; ?></button>
+        <a class="btn btn-danger" href="../functions/action.php?action=enterpriseLogout">退出</a>
+      </div>
     </div>
     <div class="main-container">
       <div class="container-left">
@@ -58,13 +54,16 @@
                 <span>知识库列表</span> 
               </div>
               <div class="kno-list-body">
-                <form action="">
-                  <label for="search">
-                    <span>search</span>
-                    <input type="text" id="search">
-                    <input type="submit" class="btn">
-                  </label>
-                </form>
+                <div class="search-button-flex">
+                  <button type="button" class="btn" onclick=location.href="knowledge_add.php">添加知识</button>
+                  <form action="">
+                    <label for="search">
+                      <span>search</span>
+                      <input type="text" id="search">
+                      <input type="submit" class="btn">
+                    </label>
+                  </form>
+                </div>
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
@@ -89,9 +88,9 @@
 								echo "<td>{$row['KTitle']}</td>";
 								echo "<td>{$row['KVisitTime']}</td>";
 								echo "<td class='table-ope-icon'>
-										<a href='knowledge_list.php?KID={$row['KID']}'><span class='glyphicon glyphicon-search'></span></a>
-										<a href='knowledge_modify.php?KID={$row['KID']}'><span class='glyphicon glyphicon-wrench'></span></a>
-										<a href='javascript:deleteKnowledge({$row['KID']})'><span class='glyphicon glyphicon-trash'></span></a>
+										<a href='knowledge_list.php?KID={$row['KID']}' title='展示知识'><span class='glyphicon glyphicon-search'></span></a>
+										<a href='knowledge_modify.php?KID={$row['KID']}' title='修改知识'><span class='glyphicon glyphicon-wrench'></span></a>
+										<a href='javascript:deleteKnowledge({$row['KID']})' title='删除知识'><span class='glyphicon glyphicon-trash'></span></a>
 									 </td>";
 							echo "</tr>";
 							echo "</form>";
@@ -100,7 +99,6 @@
 					?>
                   </tbody>
                 </table>
-                <button type="buttom" class="btn" onclick=location.href="knowledge_add.php">添加</button>
               </div>
             </div>
           </div>

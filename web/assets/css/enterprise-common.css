@@ -100,9 +100,10 @@ body{
   text-align: center;
 }
 .inform-block-top a{
+  display: block;
   height: auto;
   color: white;
-  font-size: 22px;
+  font-size: 46px;
   font-weight: 400;
   text-align: center;
 }
@@ -176,6 +177,7 @@ body{
   color: white;
 }
 .pro-block a{
+  display: block;
   text-align: center;
   margin-top: 55px;
   color: white;
@@ -767,8 +769,7 @@ img#pro-image-place{
   flex:2;
 }
 .kno-list-body>button{
-  margin-left: 10px;
-  margin-bottom: 10px;
+  margin: 14px;
   font-size: 16px;
   color: white;
   background: #578EBE;
@@ -895,8 +896,7 @@ img#pro-image-place{
   flex:2;
 }
 .que-list-body>button{
-  margin-left: 10px;
-  margin-bottom: 10px;
+  margin: 14px;
   font-size: 16px;
   color: white;
   background: #578EBE;
@@ -1028,7 +1028,7 @@ img#pro-image-place{
   display: flex;
   justify-content: space-around;
 } 
-.table-ope-icon a{
+.table-ope-icon a {
   width: 30px;
   height: 30px;
   display: inline-block; 
@@ -1053,4 +1053,24 @@ img#pro-image-place{
   font-size: 16px;
   color: white;
   background: #578EBE;
+}
+
+.search-button-flex{
+  display: flex;
+  align-items: center;
+}
+.search-button-flex button{
+  font-size: 16px;
+  color: white;
+  background: #578EBE;
+  margin-left: 10px;
+}
+.search-button-flex form{
+  flex: 1;
+  margin-left: auto;
+  margin-right: 10px;
+  text-align: right;
+}
+.search-button-flex form label{
+  margin: 0;
 }
